@@ -45,7 +45,7 @@ public class LoteXMLJobConfig {
                 .build();
     }
 
- 
+
     @Bean
     public Job exampleJob(Step exampleJobStep,
                           JobBuilderFactory jobBuilderFactory) {
