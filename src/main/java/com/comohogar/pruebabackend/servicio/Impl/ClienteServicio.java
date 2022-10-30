@@ -1,15 +1,13 @@
 package com.comohogar.pruebabackend.servicio.Impl;
 
 import com.comohogar.pruebabackend.dto.SkFormato;
-import com.comohogar.pruebabackend.excepciones.MovimientosException;
-import com.comohogar.pruebabackend.servicio.IClienteServicio;
 import com.comohogar.pruebabackend.entidad.Cliente;
+import com.comohogar.pruebabackend.excepciones.MovimientosException;
 import com.comohogar.pruebabackend.repository.IClienteRepository;
+import com.comohogar.pruebabackend.servicio.IClienteServicio;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.juli.logging.Log;
-import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
