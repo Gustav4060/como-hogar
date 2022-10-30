@@ -1,5 +1,6 @@
 package com.comohogar.pruebabackend.servicio;
 
+import com.comohogar.pruebabackend.dto.ClienteRespuestaDto;
 import com.comohogar.pruebabackend.excepciones.MovimientosException;
 import com.comohogar.pruebabackend.entidad.Cliente;
 
@@ -17,5 +18,5 @@ public interface IClienteServicio {
 
     void eliminar(Long id) throws MovimientosException;
 
-
+    ClienteRespuestaDto registrarValida(ClienteRespuestaDto c) throws MovimientosException;
 }

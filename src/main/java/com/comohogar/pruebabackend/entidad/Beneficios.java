@@ -3,14 +3,11 @@ package com.comohogar.pruebabackend.entidad;
 import com.comohogar.pruebabackend.restriccion.GrupoEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
 
 
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Data

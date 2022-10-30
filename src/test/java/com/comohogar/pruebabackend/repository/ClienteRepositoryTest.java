@@ -21,22 +21,22 @@ public class ClienteRepositoryTest {
 
     @Test
     public void whenFindingCustomerById_thenCorrect() {
-        IClienteRepository.save(new Cliente(1L, "John", "john@domain.com", "0981539347", " la plaza", GrupoEnum.SK));
+        IClienteRepository.save(new Cliente(1L, "John", "john@domain.com", "0981539347", " la plaza", GrupoEnum.SK,2L));
         assertThat(IClienteRepository.findById(1L)).isInstanceOf(Optional.class);
     }
 
     @Test
     public void whenFindingAllCustomers_thenCorrect() {
-        IClienteRepository.save(new Cliente(1L,"John", "john@domain.com","0981539347", " la plaza", GrupoEnum.SK ));
-        IClienteRepository.save(new Cliente(2L,"Julie", "julie@domain.com","0981539347", " la plaza", GrupoEnum.TH));
+        IClienteRepository.save(new Cliente(1L,"John", "john@domain.com","0981539347", " la plaza", GrupoEnum.SK ,1L));
+        IClienteRepository.save(new Cliente(2L,"Julie", "julie@domain.com","0981539347", " la plaza", GrupoEnum.TH,1L));
         assertThat(IClienteRepository.findAll()).isInstanceOf(List.class);
     }
 
     @Test
     public void whenSavingCustomer_thenCorrect() {
-        IClienteRepository.save(new Cliente(1L,"Bob", "bob@domain.com","0981539347", " la plaza", GrupoEnum.SK));
+        IClienteRepository.save(new Cliente(1L,"Bob", "bob@domain.com","0981539347", " la plaza", GrupoEnum.SK,1L));
         Cliente cliente = IClienteRepository.findById(1L).orElseGet(()
-                -> new Cliente(1L,"Bob", "bob@domain.com","0981539347", " la plaza", GrupoEnum.SK));
+                -> new Cliente(1L,"Bob", "bob@domain.com","0981539347", " la plaza", GrupoEnum.SK,1L));
         assertThat(cliente.getNombre().equals("Bob"));
     }
 }

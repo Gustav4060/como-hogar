@@ -34,5 +34,7 @@ public class Cliente {
     @Enumerated(EnumType.STRING)
     private GrupoEnum grupo;
 
+    @Column(name = "idDescuento", nullable = false ,length = 100)
+    private Long idDescuento;
 
 }

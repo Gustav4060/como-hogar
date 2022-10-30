@@ -26,7 +26,6 @@ public class LoteXMLJobConfig {
                 .name("beneficiosReader")
                 .resource(new ClassPathResource("data/th_formato.xml"))
                 .addFragmentRootElements("beneficios")
-
                 .unmarshaller(beneficioMarshaller)
                 .build();
     }

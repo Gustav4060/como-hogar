@@ -1,5 +1,6 @@
 package com.comohogar.pruebabackend.controlador;
 
+import com.comohogar.pruebabackend.dto.ClienteRespuestaDto;
 import com.comohogar.pruebabackend.excepciones.ModeloNotFoundException;
 import com.comohogar.pruebabackend.excepciones.MovimientosException;
 import com.comohogar.pruebabackend.servicio.IClienteServicio;
@@ -51,13 +52,11 @@ public class ClienteControlador {
     public ResponseEntity<ClienteDto> listarPorId(@PathVariable("id") Long id) throws MovimientosException {
         ClienteDto dtoResponse;
         Cliente obj = clienteServicio.listarPorId(id);
-
         if (obj == null) {
             throw new ModeloNotFoundException(ID_NO_ENCONTRADO+ id);
         } else {
             dtoResponse = mapper.map(obj, ClienteDto.class); //
         }
-
         return new ResponseEntity<>(dtoResponse, HttpStatus.OK);
     }
 
@@ -86,17 +85,12 @@ public class ClienteControlador {
     @PutMapping
     public ResponseEntity<ClienteDto> modificar(@RequestBody ClienteDto dtoRequest) throws MovimientosException {
         Cliente cliente = clienteServicio.listarPorId(dtoRequest.getId());
-
         if (cliente == null) {
             throw new ModeloNotFoundException(ID_NO_ENCONTRADO+ dtoRequest.getId());
         }
-
         Cliente p = mapper.map(dtoRequest, Cliente.class);
-
         Cliente obj = clienteServicio.modificar(p);
-
         ClienteDto dtoResponse = mapper.map(obj, ClienteDto.class);
-
         return new ResponseEntity<>(dtoResponse, HttpStatus.OK);
     }
 
@@ -110,7 +104,6 @@ public class ClienteControlador {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable("id") Long id) throws MovimientosException {
         Cliente cliente = clienteServicio.listarPorId(id);
-
         if (cliente == null) {
             throw new ModeloNotFoundException(ID_NO_ENCONTRADO+ id);
         }
@@ -118,4 +111,11 @@ public class ClienteControlador {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+
+    @PostMapping("/registraValida")
+    public ResponseEntity<ClienteRespuestaDto> registrarCliente(@Valid @RequestBody ClienteDto dtoRequest) throws MovimientosException {
+        ClienteRespuestaDto c = mapper.map(dtoRequest, ClienteRespuestaDto.class);
+        ClienteRespuestaDto obj = clienteServicio.registrarValida(c);
+        return new ResponseEntity<>(obj, HttpStatus.CREATED);
+    }
 }
