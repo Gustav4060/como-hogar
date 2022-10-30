@@ -1,6 +1,5 @@
 package com.comohogar.pruebabackend.controlador;
 
-import com.comohogar.pruebabackend.dto.Root;
 import com.comohogar.pruebabackend.excepciones.ModeloNotFoundException;
 import com.comohogar.pruebabackend.excepciones.MovimientosException;
 import com.comohogar.pruebabackend.servicio.IClienteServicio;
@@ -119,12 +118,4 @@ public class ClienteControlador {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/listarJson")
-    public ResponseEntity<Root> listarJson() throws MovimientosException {
-
-        //read JSON file and convert to a customer object
-        Root customer = mapper.map(new File("data/sk_formato.json"), Root.class);
-
-        return new ResponseEntity<>(customer, HttpStatus.OK);
-    }
 }

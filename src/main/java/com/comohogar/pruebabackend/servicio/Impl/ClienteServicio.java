@@ -1,6 +1,5 @@
 package com.comohogar.pruebabackend.servicio.Impl;
 
-import com.comohogar.pruebabackend.dto.SkFormato;
 import com.comohogar.pruebabackend.entidad.Cliente;
 import com.comohogar.pruebabackend.excepciones.MovimientosException;
 import com.comohogar.pruebabackend.repository.IClienteRepository;
@@ -17,9 +16,7 @@ import java.util.List;
 public class ClienteServicio implements IClienteServicio {
     @Autowired
     private IClienteRepository repository;
-    @Setter
-    @Getter
-    private List<SkFormato> lstBeneficios;
+
     @Override
     public Cliente registrar(Cliente c) throws MovimientosException {
         return repository.save(c);
