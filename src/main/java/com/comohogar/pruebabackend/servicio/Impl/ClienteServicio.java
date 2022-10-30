@@ -3,6 +3,7 @@ package com.comohogar.pruebabackend.servicio.Impl;
 import com.comohogar.pruebabackend.entidad.Cliente;
 import com.comohogar.pruebabackend.excepciones.MovimientosException;
 import com.comohogar.pruebabackend.repository.IClienteRepository;
+import com.comohogar.pruebabackend.servicio.IBeneficioServicio;
 import com.comohogar.pruebabackend.servicio.IClienteServicio;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,6 +42,5 @@ public class ClienteServicio implements IClienteServicio {
     public void eliminar(Long id) throws MovimientosException {
         repository.deleteById(id);
     }
-
 
 }

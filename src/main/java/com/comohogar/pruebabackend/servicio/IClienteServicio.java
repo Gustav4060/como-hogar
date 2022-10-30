@@ -16,4 +16,6 @@ public interface IClienteServicio {
     Cliente listarPorId(Long id) throws MovimientosException;
 
     void eliminar(Long id) throws MovimientosException;
+
+    
 }

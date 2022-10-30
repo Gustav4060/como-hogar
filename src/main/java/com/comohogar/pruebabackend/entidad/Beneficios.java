@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
+
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,9 +22,7 @@ public class Beneficios {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
     @Enumerated(EnumType.STRING)
-    public GrupoEnum grupoEnum;
-    @OneToMany
-    public List<Formato> formatos;
+    private GrupoEnum grupoEnum;
+    private String beneficio;
 }
