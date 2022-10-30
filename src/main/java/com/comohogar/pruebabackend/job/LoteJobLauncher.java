@@ -20,8 +20,6 @@ import java.util.Map;
 @Slf4j
 public class LoteJobLauncher {
 
-
-
     private final Job job;
     private final JobLauncher jobLauncher;
 

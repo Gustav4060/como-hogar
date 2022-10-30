@@ -19,18 +19,17 @@ public class LoteXMLJobConfig {
 
     @Bean
     public ItemReader<BeneficioDto> itemReader() {
-        Jaxb2Marshaller studentMarshaller = new Jaxb2Marshaller();
-        studentMarshaller.setClassesToBeBound(BeneficioDto.class);
+        Jaxb2Marshaller beneficioMarshaller = new Jaxb2Marshaller();
+        beneficioMarshaller.setClassesToBeBound(BeneficioDto.class);
 
         return new StaxEventItemReaderBuilder<BeneficioDto>()
                 .name("beneficiosReader")
                 .resource(new ClassPathResource("data/th_formato.xml"))
                 .addFragmentRootElements("beneficios")
 
-                .unmarshaller(studentMarshaller)
+                .unmarshaller(beneficioMarshaller)
                 .build();
     }
-
     @Bean
     public ItemWriter<BeneficioDto> itemWriter() {
         return new LoggingItemWriter();
@@ -47,7 +46,7 @@ public class LoteXMLJobConfig {
     public Step exampleJobStep(ItemReader<BeneficioDto> reader,
                                ItemWriter<BeneficioDto> writer,
                                StepBuilderFactory stepBuilderFactory) {
-        return stepBuilderFactory.get("exampleJobStep")
+        return stepBuilderFactory.get("beneficioJobStep")
                 .<BeneficioDto, BeneficioDto>chunk(1)
                 .reader(reader)
                 .writer(writer)
@@ -63,7 +62,7 @@ public class LoteXMLJobConfig {
     @Bean
     public Job exampleJob(Step exampleJobStep,
                           JobBuilderFactory jobBuilderFactory) {
-        return jobBuilderFactory.get("exampleJob")
+        return jobBuilderFactory.get("beneficioJob")
                 .incrementer(new RunIdIncrementer())
                 .flow(exampleJobStep)
                 .end()
