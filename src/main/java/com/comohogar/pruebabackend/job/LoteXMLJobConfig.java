@@ -34,13 +34,6 @@ public class LoteXMLJobConfig {
         return new LoggingItemWriter();
     }
 
-    /**
-     * Creates a bean that represents the only step of our batch job.
-     * @param reader
-     * @param writer
-     * @param stepBuilderFactory
-     * @return
-     */
     @Bean
     public Step exampleJobStep(ItemReader<BeneficioDto> reader,
                                ItemWriter<BeneficioDto> writer,
@@ -52,12 +45,7 @@ public class LoteXMLJobConfig {
                 .build();
     }
 
-    /**
-     * Creates a bean that represents our example batch job.
-     * @param exampleJobStep
-     * @param jobBuilderFactory
-     * @return
-     */
+ 
     @Bean
     public Job exampleJob(Step exampleJobStep,
                           JobBuilderFactory jobBuilderFactory) {
