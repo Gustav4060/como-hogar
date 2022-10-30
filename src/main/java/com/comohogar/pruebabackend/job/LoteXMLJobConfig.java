@@ -23,7 +23,7 @@ public class LoteXMLJobConfig {
         studentMarshaller.setClassesToBeBound(BeneficioDto.class);
 
         return new StaxEventItemReaderBuilder<BeneficioDto>()
-                .name("studentReader")
+                .name("beneficiosReader")
                 .resource(new ClassPathResource("data/th_formato.xml"))
                 .addFragmentRootElements("beneficios")
 

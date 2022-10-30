@@ -1,7 +1,6 @@
 package com.comohogar.pruebabackend.job;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobParameter;
 import org.springframework.batch.core.JobParameters;
@@ -18,9 +17,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 @Component
+@Slf4j
 public class LoteJobLauncher {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoteJobLauncher.class);
+
 
     private final Job job;
     private final JobLauncher jobLauncher;
@@ -33,11 +33,11 @@ public class LoteJobLauncher {
 
     @Scheduled(cron = "*/10 * * * * *")
     public void runSpringBatchExampleJob() throws JobParametersInvalidException, JobExecutionAlreadyRunningException, JobRestartException, JobInstanceAlreadyCompleteException {
-        LOGGER.info("Spring Batch example job was started");
+        log.info("Spring Batch example job was started");
 
         jobLauncher.run(job, newExecution());
 
-        LOGGER.info("Spring Batch example job was stopped");
+        log.info("Spring Batch example job was stopped");
     }
 
     private JobParameters newExecution() {

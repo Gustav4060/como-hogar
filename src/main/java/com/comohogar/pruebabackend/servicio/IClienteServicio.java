@@ -17,5 +17,5 @@ public interface IClienteServicio {
 
     void eliminar(Long id) throws MovimientosException;
 
-    
+
 }
