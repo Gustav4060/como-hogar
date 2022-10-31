@@ -70,7 +70,7 @@ public class ClienteServicio implements IClienteServicio {
                     .listar()
                     .stream()
                     .anyMatch(b-> c.getIdDescuento().equals(b.getId()) && b.getGrupoEnum().equals(GrupoEnum.TH));
-            cliente.setGrupo(GrupoEnum.SK);
+            cliente.setGrupo(GrupoEnum.TH);
             cliente.setIdDescuento(c.getIdDescuento());
         }
         if (validaDescuento) {
